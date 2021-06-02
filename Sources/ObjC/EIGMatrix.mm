@@ -7,6 +7,7 @@
 
 #import <iostream>
 
+using Self = EIGMatrix;
 using Matrix = Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic>;
 using Map = Eigen::Map<Matrix>;
 
@@ -53,6 +54,12 @@ using Map = Eigen::Map<Matrix>;
 - (instancetype)inverse {
     const Matrix result = _matrix.inverse();
     return [[EIGMatrix alloc] initWithMatrix:result];
+}
+
++ (instancetype)solveUpperTriangular:(Self *)U :(Self *)b {
+//    auto x = U.matrix.triangularView<Eigen::Upper>().solve(b.matrix);
+    auto x = U->_matrix.triangularView<Eigen::Upper>().solve(b->_matrix);
+    return [[Self alloc] initWithMatrix:x];
 }
 
 - (NSString*)description {

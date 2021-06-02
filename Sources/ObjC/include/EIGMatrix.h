@@ -20,6 +20,8 @@ NS_SWIFT_NAME(value(row:col:));
 - (void)setValue:(float)value row:(ptrdiff_t)row col:(ptrdiff_t)col
 NS_SWIFT_NAME(setValue(_:row:col:));
 
++ (instancetype)solveUpperTriangular:(id)U :(id)b;
+
 - (EIGMatrix*)inverse;
 
 @end

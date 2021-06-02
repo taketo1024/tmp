@@ -24,6 +24,11 @@ let package = Package(
             name: "SwiftyEigen",
             dependencies: ["ObjCEigen"],
             path: "Sources/Swift"
+        ),
+        .target(
+            name: "Sample",
+            dependencies: ["SwiftyEigen"],
+            path: "Sources/Sample"
         )
     ]
 )
